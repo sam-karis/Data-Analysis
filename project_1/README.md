@@ -17,5 +17,5 @@ The tutorial:
 + using HTTPS   
 https://github.com/sam-karis/Data-Analysis.git   
 + using SSH    
-[git@github.com:sam-karis/Data-Analysis.git]    
-4. Run the **specdata.Rmd** file
+[git@github.com:sam-karis/Data-Analysis.git]
+4. Then Run the **specdata.Rmd** file.  
