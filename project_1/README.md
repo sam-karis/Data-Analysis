@@ -15,7 +15,7 @@ The tutorial:
 2. Navigate to a directory of your choice in you computer on terminal.  
 3. Clone a repository on that directory.   
 + using HTTPS   
-[linked phrase](https://github.com/sam-karis/Data-Analysis.git)   
+https://github.com/sam-karis/Data-Analysis.git   
 + using SSH    
-[linked phrase](git@github.com:sam-karis/Data-Analysis.git)
+[git@github.com:sam-karis/Data-Analysis.git]    
 4. Run the **specdata.Rmd** file
