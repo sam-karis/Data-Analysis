@@ -9,7 +9,7 @@ The tutorial:
 + We extract zipped file to create an ordinary folder for access from R.   
 + our dataset consist of 332 csv files.  
     
->**To view the analysis on the web open the **specdata.md****
+**To view the analysis on the web open the specdata.md**
  
 **To run the Project in your local machine**  
 1. You need to have install: R and R studio   
