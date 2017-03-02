@@ -1,0 +1,111 @@
+---
+title: "Major Diseases causing Deaths in Kenya"
+author: "Sammy kariuki"
+date: "March 2, 2017"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+##Introduction 
+This is an exploration of dataset consisting number of deaths caused by major diseases.  
+The data is available to the public here https://data.humdata.org/dataset.     
+
+Before we start any data exploration and analysis lets lets load all the library we will need for our exploration.     
+```{r}
+library(dplyr)
+library(tidyr)
+library(readr)
+library(ggplot2)
+```
+Now our environment is ready for us to dive into work.    
+   
+We start by creating a directory where we will store our data.   
+```{r}
+if (!file.exists("data")){
+  dir.create("data")
+}
+```
+Then move to the source of our dataset and get the link which we will use  to download the data into our working machine.    
+```{r}
+file_url <- "https://data.humdata.org/dataset/800a36ce-3dac-4266-9afc-6233ec2f3bd5/resource/9aa2b2eb-5a34-4fbf-bd62-e605dbaf3400/download/national-registered-deaths-by-major-causes-2010-2013.csv"  
+
+if (!file.exists("./data/dat1.csv")){
+  download.file(file_url, destfile = "data/dat1.csv") 
+  downloadtime <- date()
+}
+```
+Each time we download data from internet it is a good practice to record the time we download, this help you in future when you redownload the data and find it has being updated.   
+```{r}
+#print (downloadtime)
+```
+Lets read the data into R. 
+ 
+```{r}
+mydf1 <- read.csv("./data/dat1.csv")
+```
+Now lets explore our data.   
+```{r}
+class(mydf1)
+dim(mydf1)
+head(mydf1)
+```
+Now we can see.   
++ We have a dataframe as our R object   
++ We have five column with rows    
++ The first column is the main diseases while the rest are years and t
+he number of deaths for each disease.   
+    
+    
+##Tidy Data
+Like families, tidy datasets are all alike but every messy dataset is messy in its own way. Tidy datasets provide a standardized way to link the structure of a dataset (its physical layout) with its semantics (its meaning). 
+In **tidy data**   
+1. Each variable forms a column.
+2. Each observation forms a row.
+3. Each type of observational unit forms a table.   
+     
+These principles of tidy data provide a standard way to organise data values within a dataset. A standard makes initial data cleaning easier because you don't need to start from scratch and reinvent the wheel every time.   
+Back to our data we can clearly conclude that its quite messy thus we need to make it tidy.   
+From the data we have three variables that is    
++ Cause   
++ Year   
++ Deaths   
+This means that the data violate the rule that tidy data each variable form a column.   
+Lets dive in to achieve this using the dplyr and tidyr package.    
+We begin by using "tbl_df" in dplyr package that create a dataframe that ffers better checking and printing capabilities than traditional data frames.   
+```{r}
+mydf <- tbl_df(mydf1)
+class(mydf)
+mydf
+```
+Nice the new dataframe provide us with more info neatly.   
+    
+Further to avoid any confusion remove the former dataframe.  
+```{r}
+rm(mydf1)
+```
+Next we will utilise gather function tidyr package to clean the messy data.   
+```{r}
+tidy_mydf <- gather(mydf, Year, Deaths, -Cause)
+dim(tidy_mydf)
+tidy_mydf
+```
+Greate we now got three column this, data is tidy. But a closer look at Year column each year is proceeding by a letter x which is not very neat. Lets combine parse_number function in readr package and mutate in dplyr.   
+```{r}
+tidy_mydf <- mutate(tidy_mydf, Year = parse_number(Year))
+tidy_mydf
+```
+Finally we have the Tidy data ready for further analysis lets write and save in a file for future use.
+```{r}
+write.csv(tidy_mydf, file = "data/tidy_dat1.csv")
+```
+## Including Plots for visualization
+For a visual of the data let utilize ggplot2 package to embed a simple plot.   
+
+```{r}
+ggplot(data= tidy_mydf, mapping = aes(x=Year, y =Deaths, colors(Cause)))+
+  geom_point(aes(colour = Cause )) +
+  geom_line(aes(colour = Cause))
+```
+
