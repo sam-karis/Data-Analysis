@@ -193,9 +193,5 @@ Including Plots for visualization
 
 For a visual of the data let utilize ggplot2 package to embed a simple
 plot.
-
-    ggplot(data= tidy_mydf, mapping = aes(x=Year, y =Deaths, colors(Cause)))+
-      geom_point(aes(colour = Cause )) +
-      geom_line(aes(colour = Cause))
-
-![](des_cause_files/figure-markdown_strict/unnamed-chunk-12-1.png)
+<h3>plot<h3>
+![](figures\plot1.png)
