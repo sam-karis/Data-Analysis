@@ -193,5 +193,6 @@ Including Plots for visualization
 
 For a visual of the data let utilize ggplot2 package to embed a simple
 plot.
-<h3>plot<h3>
-![](figures\plot1.png)
+<h3>plot<h3>    
+
+![plot of plot1](figures/plot1.png)
