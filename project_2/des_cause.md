@@ -66,13 +66,13 @@ Now lets explore our data.
 
     head(mydf1)
 
-    ##           Cause X2010 X2011 X2012 X2013
-    ## 1          AIDS 13656 11274 11111 11448
-    ## 2       Anaemia  7985  7984  8169  8124
-    ## 3        Cancer 11995 11527 12574 13720
-    ## 4 Heart disease  4634  4404  5188  4544
-    ## 5       Malaria 30505 26652 24772 23789
-    ## 6    Menengitis  4371  4497  4480  4265
+              Cause  X2010 X2011 X2012 X2013
+    1          AIDS  13656 11274 11111 11448
+    2       Anaemia  7985  7984  8169  8124
+    3        Cancer  11995 11527 12574 13720
+    4 Heart disease  4634  4404  5188  4544
+    5      Malaria   30505 26652 24772 23789
+    6    Menengitis  4371  4497  4480  4265
 
 Now we can see.  
 + We have a dataframe as our R object  
@@ -108,26 +108,26 @@ that ffers better checking and printing capabilities than traditional
 data frames.
 
     mydf <- tbl_df(mydf1)
-    class(mydf)
+    class(mydf)   
 
-    ## [1] "tbl_df"     "tbl"        "data.frame"
+    [1] "tbl_df"     "tbl"        "data.frame"   
 
-    mydf
+    mydf   
 
-    ## # A tibble: 11 × 5
-    ##               Cause X2010 X2011 X2012 X2013
-    ##              <fctr> <int> <int> <int> <int>
-    ## 1              AIDS 13656 11274 11111 11448
-    ## 2           Anaemia  7985  7984  8169  8124
-    ## 3            Cancer 11995 11527 12574 13720
-    ## 4     Heart disease  4634  4404  5188  4544
-    ## 5           Malaria 30505 26652 24772 23789
-    ## 6        Menengitis  4371  4497  4480  4265
-    ## 7   Other accidents  3757  4726  4630  4857
-    ## 8      Other causes 70389 73425 79228 84539
-    ## 9         Pneumonia 22204 22632 22051 22918
-    ## 10 Road traffic acc  3892  4382  4997  4942
-    ## 11      Tuberclosis 11712 11149 10611 11186
+     A tibble: 11 × 5   
+                   Cause X2010 X2011 X2012 X2013   
+                  <fctr> <int> <int> <int> <int>   
+     1              AIDS 13656 11274 11111 11448   
+     2           Anaemia  7985  7984  8169  8124   
+     3            Cancer 11995 11527 12574 13720   
+     4     Heart disease  4634  4404  5188  4544   
+     5           Malaria 30505 26652 24772 23789   
+     6        Menengitis  4371  4497  4480  4265   
+     7   Other accidents  3757  4726  4630  4857   
+     8      Other causes 70389 73425 79228 84539   
+     9         Pneumonia 22204 22632 22051 22918   
+     10 Road traffic acc  3892  4382  4997  4942   
+     11      Tuberclosis 11712 11149 10611 11186    
 
 Nice the new dataframe provide us with more info neatly.
 
@@ -168,20 +168,20 @@ dplyr.
     tidy_mydf <- mutate(tidy_mydf, Year = parse_number(Year))
     tidy_mydf
 
-    ## # A tibble: 44 × 3
-    ##               Cause  Year Deaths
-    ##              <fctr> <dbl>  <int>
-    ## 1              AIDS  2010  13656
-    ## 2           Anaemia  2010   7985
-    ## 3            Cancer  2010  11995
-    ## 4     Heart disease  2010   4634
-    ## 5           Malaria  2010  30505
-    ## 6        Menengitis  2010   4371
-    ## 7   Other accidents  2010   3757
-    ## 8      Other causes  2010  70389
-    ## 9         Pneumonia  2010  22204
-    ## 10 Road traffic acc  2010   3892
-    ## # ... with 34 more rows
+     A tibble: 44 × 3
+                   Cause  Year Deaths
+                  <fctr> <dbl>  <int>
+     1              AIDS  2010  13656
+     2           Anaemia  2010   7985
+     3            Cancer  2010  11995
+     4     Heart disease  2010   4634
+     5           Malaria  2010  30505
+     6        Menengitis  2010   4371
+     7   Other accidents  2010   3757
+     8      Other causes  2010  70389
+     9         Pneumonia  2010  22204
+     10 Road traffic acc  2010   3892
+     ... with 34 more rows
 
 Finally we have the Tidy data ready for further analysis lets write and
 save in a file for future use.
