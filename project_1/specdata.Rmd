@@ -36,8 +36,8 @@ Befor any beginning analysis you must always remember to check the directory you
     
 To do this we call **getwd()** function in R that will return our current directory.   
    
-```{r}
-getwd()#get working directory
+```{r, results='hide'}
+getwd()
 ```
     
 Incase you not comfortable to save your work in your current directory you can use the **setwd()** function to set the directory of your choice.   

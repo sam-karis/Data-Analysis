@@ -25,8 +25,8 @@ out this tutorial.
 
 Each csv file contains four variables:
 
--   Date: the date of the observation in YYYY-MM-DD
-    format (year-month-day)
+-   Date: the date of the observation in YYYY-MM-DD format
+    (year-month-day)
 
 -   Sulfate: the level of sulfate PM in the air on that date (measured
     in micrograms per cubic meter)
@@ -45,9 +45,7 @@ directory you are working on for easy access of your work in future.
 To do this we call **getwd()** function in R that will return our
 current directory.
 
-    getwd()#get working directory
-
-    ## [1] "C:/Users/Muriuki/Desktop/sam/Github/Data analysis/project_1"
+    getwd()
 
 Incase you not comfortable to save your work in your current directory
 you can use the **setwd()** function to set the directory of your
